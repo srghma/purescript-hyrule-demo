@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "clean":              "rm -rfd output output-es .spago dist",
+    "build":              "spago build --censor-stats --strict --pedantic-packages --ensure-ranges",
+    "format":             "purs-tidy format-in-place src test",
+    "check":              "purs-tidy check src test",
+    "test":               "spago test",
+    "update-docs":        "spago docs --format markdown",
+    "production:build":   "spago build && purs-backend-es build && vite build",
+    "production:preview": "vite preview --open",
+    "dev:vite":           "vite dev --open",
+    "dev:spago":          "watchexec -e purs,js,yaml -- spago build"
+  },
+  "browserslist": "defaults, not ie <= 11",
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "purs-backend-es": "^1.4.2",
+    "js-yaml": "^4.1.0"
+  }
+}

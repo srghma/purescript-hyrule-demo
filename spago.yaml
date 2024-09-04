@@ -1,0 +1,52 @@
+package:
+  name: hyrule-demo
+  publish:
+    version: 0.0.1
+    license: "Apache-2.0"
+    location:
+      githubOwner: srghma
+      githubRepo: purescript-hyrule-demo
+  dependencies:
+    - aff: ">=7.1.0 <8.0.0"
+    - arrays: ">=7.3.0 <8.0.0"
+    - canvas: ">=6.0.0 <7.0.0"
+    - colors: ">=7.0.1 <8.0.0"
+    - datetime: ">=6.1.0 <7.0.0"
+    - effect: ">=4.0.0 <5.0.0"
+    - foldable-traversable: ">=6.0.0 <7.0.0"
+    - hyrule: "*"
+    - integers: ">=6.0.0 <7.0.0"
+    - maybe: ">=6.0.0 <7.0.0"
+    - newtype: ">=5.0.0 <6.0.0"
+    - open-drawing: "*"
+    - ordered-collections: ">=3.2.0 <4.0.0"
+    - partial: ">=4.0.0 <5.0.0"
+    - prelude: ">=6.0.1 <7.0.0"
+  test:
+    main: Test.Main
+    dependencies:
+      - aff
+      - debug
+      - console
+      - spec
+      - profunctor
+workspace:
+  # WILL BREAK `spago test` with `purs-backend-es Unexpected argument: --run`
+  # HOW IT WORKS: 1. it runs `purs compile` to make `.output/**/corefn.json` 2. it runs `purs-backend-es` to produce `.output-es`
+  # backend:
+  #   cmd: purs-backend-es
+  #   args:
+  #     - build
+  packageSet:
+    registry: 57.1.0
+  # yq '.workspace.extra_packages | keys[]' spago.yaml | grep -v "deku" | xargs -I {} rm -rdf ".spago/p/{}"
+  extraPackages:
+    hyrule:
+      # git: https://github.com/mikesol/purescript-hyrule.git # REMOVE-COMMENTARY-PRE-COMMIT
+      # ref: master # REMOVE-COMMENTARY-PRE-COMMIT
+      path: /home/srghma/projects/purescript-hyrule # REMOVE-LINE-PRE-COMMIT
+    open-drawing:
+      # git: https://github.com/purescript-open-community/purescript-open-drawing.git # REMOVE-COMMENTARY-PRE-COMMIT
+      # ref: master # REMOVE-COMMENTARY-PRE-COMMIT
+      # subdir: lib
+      path: /home/srghma/projects/purescript-open-drawing/lib # REMOVE-LINE-PRE-COMMIT

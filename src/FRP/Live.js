@@ -1,8 +1,6 @@
-"use strict";
+let canvas;
 
-var canvas;
-
-exports.createCanvas = function() {
+export const createCanvas = function() {
   if (!canvas) {
     canvas = document.createElement("canvas");
     document.body.appendChild(canvas);
